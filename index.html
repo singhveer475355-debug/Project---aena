@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AENA AI</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #080d18;
+  color: white;
+}
+header {
+  padding: 22px;
+  background: #111b2d;
+  text-align: center;
+  border-bottom: 1px solid #263653;
+}
+header h1 { color: #43d9ff; margin: 0; }
+header p { color: #aabbd0; font-size: 13px; }
+#chat {
+  padding: 18px;
+  height: 68vh;
+  overflow-y: auto;
+}
+.message {
+  padding: 13px;
+  margin: 12px 0;
+  border-radius: 12px;
+  line-height: 1.5;
+  max-width: 90%;
+  white-space: pre-wrap;
+}
+.bot {
+  background: #17263d;
+  border: 1px solid #294361;
+}
+.user {
+  background: #075b82;
+  margin-left: auto;
+}
+.controls {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #111b2d;
+}
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #34506c;
+  background: #080d18;
+  color: white;
+}
+button {
+  padding: 12px 17px;
+  background: #00a9df;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>✦ AENA AI</h1>
+  <p>Your Personal AI Assistant</p>
+</header>
+
+<div id="chat">
+  <div class="message bot">
+    Hello! I am AENA.
+
+    ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ! ਮੈਂ AENA ਹਾਂ।
+    How can I help you today?
+  </div>
+</div>
+
+<div class="controls">
+  <input id="msg" placeholder="Message AENA..." />
+  <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+function sendMessage() {
+  const input = document.getElementById("msg");
+  const chat = document.getElementById("chat");
+  const message = input.value.trim();
+
+  if (!message) return;
+
+  const user = document.createElement("div");
+  user.className = "message user";
+  user.textContent = message;
+  chat.appendChild(user);
+
+  const bot = document.createElement("div");
+  bot.className = "message bot";
+  bot.textContent =
+    "I am AENA V1.0. My AI brain is under development!";
+  chat.appendChild(bot);
+
+  input.value = "";
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
+
+</body>
+</html>
